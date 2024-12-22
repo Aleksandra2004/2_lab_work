@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>task.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+task.py</font>
+</center></td></tr></table>
+<pre><span class="s0">def </span><span class="s1">find_common_participants</span><span class="s2">(</span><span class="s1">group1</span><span class="s2">, </span><span class="s1">group2</span><span class="s2">, </span><span class="s1">delimiter</span><span class="s2">=</span><span class="s3">','</span><span class="s2">):</span>
+    <span class="s1">participants1 </span><span class="s2">= </span><span class="s1">group1</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s1">delimiter</span><span class="s2">)</span>
+    <span class="s1">participants2 </span><span class="s2">= </span><span class="s1">group2</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s1">delimiter</span><span class="s2">)</span>
+
+    <span class="s1">common_participants </span><span class="s2">= </span><span class="s1">set</span><span class="s2">(</span><span class="s1">participants1</span><span class="s2">) &amp; </span><span class="s1">set</span><span class="s2">(</span><span class="s1">participants2</span><span class="s2">)</span>
+
+    <span class="s0">return </span><span class="s1">sorted</span><span class="s2">(</span><span class="s1">list</span><span class="s2">(</span><span class="s1">common_participants</span><span class="s2">))</span>
+
+
+<span class="s4"># Проверка работы функции с разделителем отличным от запятой</span>
+<span class="s1">participants_first_group </span><span class="s2">= </span><span class="s3">&quot;Иванов|Петров|Сидоров&quot;</span>
+<span class="s1">participants_second_group </span><span class="s2">= </span><span class="s3">&quot;Петров|Сидоров|Смирнов&quot;</span>
+<span class="s1">common_participants </span><span class="s2">= </span><span class="s1">find_common_participants</span><span class="s2">(</span><span class="s1">participants_first_group</span><span class="s2">, </span><span class="s1">participants_second_group</span><span class="s2">, </span><span class="s1">delimiter</span><span class="s2">=</span><span class="s3">'|'</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s1">common_participants</span><span class="s2">)</span>
+</pre>
+</body>
+</html>

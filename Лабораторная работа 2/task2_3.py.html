@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">def </span><span class="s1">count_letters</span><span class="s2">(</span><span class="s1">text</span><span class="s2">):</span>
+    <span class="s1">letter_count </span><span class="s2">= {}</span>
+    <span class="s0">for </span><span class="s1">char </span><span class="s0">in </span><span class="s1">text</span><span class="s2">:</span>
+        <span class="s0">if </span><span class="s1">char</span><span class="s2">.</span><span class="s1">isalpha</span><span class="s2">():</span>
+            <span class="s1">char </span><span class="s2">= </span><span class="s1">char</span><span class="s2">.</span><span class="s1">lower</span><span class="s2">()</span>
+            <span class="s0">if </span><span class="s1">char </span><span class="s0">in </span><span class="s1">letter_count</span><span class="s2">:</span>
+                <span class="s1">letter_count</span><span class="s2">[</span><span class="s1">char</span><span class="s2">] += </span><span class="s3">1</span>
+            <span class="s0">else</span><span class="s2">:</span>
+                <span class="s1">letter_count</span><span class="s2">[</span><span class="s1">char</span><span class="s2">] = </span><span class="s3">1</span>
+    <span class="s0">return </span><span class="s2">{</span><span class="s1">k</span><span class="s2">: </span><span class="s1">v </span><span class="s0">for </span><span class="s1">k</span><span class="s2">, </span><span class="s1">v </span><span class="s0">in </span><span class="s1">letter_count</span><span class="s2">.</span><span class="s1">items</span><span class="s2">() </span><span class="s0">if </span><span class="s1">k</span><span class="s2">.</span><span class="s1">islower</span><span class="s2">()}</span>
+
+
+<span class="s0">def </span><span class="s1">calculate_frequency</span><span class="s2">(</span><span class="s1">letter_counts</span><span class="s2">):</span>
+    <span class="s1">total_letters </span><span class="s2">= </span><span class="s1">sum</span><span class="s2">(</span><span class="s1">letter_counts</span><span class="s2">.</span><span class="s1">values</span><span class="s2">())</span>
+    <span class="s1">frequencies </span><span class="s2">= {}</span>
+    <span class="s0">for </span><span class="s1">letter</span><span class="s2">, </span><span class="s1">count </span><span class="s0">in </span><span class="s1">letter_counts</span><span class="s2">.</span><span class="s1">items</span><span class="s2">():</span>
+        <span class="s1">frequencies</span><span class="s2">[</span><span class="s1">letter</span><span class="s2">] = </span><span class="s1">format</span><span class="s2">(</span><span class="s1">count </span><span class="s2">/ </span><span class="s1">total_letters</span><span class="s2">, </span><span class="s4">'.2f'</span><span class="s2">)</span>
+    <span class="s0">return </span><span class="s1">frequencies</span>
+
+<span class="s1">main_str </span><span class="s2">= </span><span class="s4">&quot;&quot;&quot; 
+У лукоморья дуб зелёный; 
+Златая цепь на дубе том: 
+И днём и ночью кот учёный 
+Всё ходит по цепи кругом; 
+Идёт направо — песнь заводит, 
+Налево — сказку говорит. 
+Там чудеса: там леший бродит, 
+Русалка на ветвях сидит; 
+Там на неведомых дорожках 
+Следы невиданных зверей; 
+Избушка там на курьих ножках 
+Стоит без окон, без дверей; 
+Там лес и дол видений полны; 
+Там о заре прихлынут волны 
+На брег песчаный и пустой, 
+И тридцать витязей прекрасных 
+Чредой из вод выходят ясных, 
+И с ними дядька их морской; 
+Там королевич мимоходом 
+Пленяет грозного царя; 
+Там в облаках перед народом 
+Через леса, через моря 
+Колдун несёт богатыря; 
+В темнице там царевна тужит, 
+А бурый волк ей верно служит; 
+Там ступа с Бабою Ягой 
+Идёт, бредёт сама собой, 
+Там царь Кащей над златом чахнет; 
+Там русский дух… там Русью пахнет! 
+И там я был, и мёд я пил; 
+У моря видел дуб зелёный; 
+Под ним сидел, и кот учёный 
+Свои мне сказки говорил. 
+&quot;&quot;&quot;</span>
+
+<span class="s1">letters_count </span><span class="s2">= </span><span class="s1">count_letters</span><span class="s2">(</span><span class="s1">main_str</span><span class="s2">)</span>
+<span class="s1">letter_frequencies </span><span class="s2">= </span><span class="s1">calculate_frequency</span><span class="s2">(</span><span class="s1">letters_count</span><span class="s2">)</span>
+
+<span class="s0">for </span><span class="s1">letter</span><span class="s2">, </span><span class="s1">frequency </span><span class="s0">in </span><span class="s1">letter_frequencies</span><span class="s2">.</span><span class="s1">items</span><span class="s2">():</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s4">f&quot;</span><span class="s0">{</span><span class="s1">letter</span><span class="s0">}</span><span class="s4">: </span><span class="s0">{</span><span class="s1">frequency</span><span class="s0">}</span><span class="s4">&quot;</span><span class="s2">)</span></pre>
+</body>
+</html>
